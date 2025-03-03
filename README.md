@@ -1,5 +1,5 @@
 # proiectPIA
-S  se realizeze un program care foloses,te comunicat, ia Bluetooth (la alegere, Bluetooth
+Sa  se realizeze un program care foloses,te comunicat, ia Bluetooth (la alegere, Bluetooth
 Classic sau Bluetooth Low Energy). Se va controla starea a dou  LED-uri ce formeaz  un
 semafor destinat pietonilor. LED-urile vor  aprinse sau stinse în funct, ie de o anumit  intrare
 capacitiv  a microcontrolerului ESP32, dup  cum urmeaz :
