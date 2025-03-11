@@ -11,13 +11,15 @@
 #define ledRosu 13
 #define ledGalben 12
 #define ledVerde 27
+#define T3 15
+#define T6 14
+#defien T9 12
 #include "BluetoothSerial.h"
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
 #error Bluetooth is not enabled! Please run make menuconfig to and enable it
 #endif
 
 BluetoothSerial SerialBT;
-
 
 void setup() {
 pinMode(ledRosu, OUTPUT);
@@ -33,6 +35,9 @@ pinMode(G, OUTPUT); //G
 pinMode(DP, OUTPUT); //DP
 pinMode(DIGIT1, OUTPUT); //DIGIT1
 pinMode(DIGIT2, OUTPUT); //DIGIT2
+pinMode(T3, INPUT);
+pinMode(T6, INPUT);
+pinMode(T9, INPUT);
 Serial.begin(115200);
 delay(1000);
 SerialBT.begin("ESP-Echipa 8");
@@ -41,7 +46,7 @@ Serial.println("The device started, now you can pair it with bluetooth!");
 
 void loop() {
 
-if(touchRead(T3<50)){
+if(digitalRead(T3==1)){
 digitalWrite(ledRosu, HIGH);
 SerialBT.println("Semaforul s-a facut rosu, va rog asteptati");
 delay(2000);
@@ -118,7 +123,7 @@ digitalWrite(DIGIT1, LOW);
 digitalWrite(DIGIT2, LOW);
 }
 
-if(touchRead(T6<50)){
+if(digitalRead(T6==1)){
 digitalWrite(ledVerde, HIGH);
 SerialBT.println("Semaforul s-a facut verde, va rog traversati");
 digitalWrite(ledGalben, HIGH);
@@ -211,7 +216,7 @@ digitalWrite(DIGIT1, LOW);
 digitalWrite(DIGIT2, LOW);
 }
 
-if(touchRead(T9<30)){
+if(digitalRead(T9==1)){
 digitalWrite(ledRosu, HIGH);
 SerialBT.println("Semaforul s-a facut rosu, va rog asteptati");
 delay(2000);
@@ -271,6 +276,6 @@ digitalWrite(ledGalben, HIGH);
 delay(333.333);
 digitalWrite(ledGalben, LOW);
 delay(333.333);
-digitalWrite(ledVerde, LOW);
-}  
+digitalWrite(ledVerde, LOW);
+}  
 }
