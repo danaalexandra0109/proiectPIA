@@ -13,7 +13,7 @@
 #define ledVerde 27
 #define T3 15
 #define T6 14
-#defien T9 12
+#define T9 12
 #include "BluetoothSerial.h"
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
 #error Bluetooth is not enabled! Please run make menuconfig to and enable it
